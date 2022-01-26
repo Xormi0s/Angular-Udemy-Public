@@ -1,0 +1,5 @@
+ <button class="btn btn-primary" (click)="onClickDisplay()">Display details</button>
+<br>
+<p *ngIf="showText">This is the way !</p>
+<br>
+<p *ngFor="let loop of totalClicks" [ngStyle]="{backgroundColor: loop >= 5 ? 'blue' : 'transparant'}" [ngClass]="{'white-text': loop >= 5}">{{ loop }}</p>

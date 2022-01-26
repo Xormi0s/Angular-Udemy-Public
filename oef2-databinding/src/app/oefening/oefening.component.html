@@ -1,0 +1,6 @@
+<input type="text" class="form-control" [(ngModel)]="name" (input)="onNameEntered()">
+<br>
+<p>The name you entered: {{ name }}</p>
+<br>
+<p>Reset button that only works if have entered a name !</p>
+<button class="btn btn-primary" [disabled]="!allowReset" (click)="onReset()">Reset</button>

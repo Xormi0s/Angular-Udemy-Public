@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1>Oefening 6: Forms template driven</h1>
+      <hr>
+      <br>
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div id="user-data">
+          <div class="form-group">
+            <label for="email">Mail adress</label>
+            <input  type="text" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+          </div>
+          <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid mail adress!</span>
+          <div class="form-group">
+            <label for="subscription">Subscriptions</label>
+            <select id="subscription" class="form-control" [ngModel]="defaultDropdown" name="subscription">
+              <option value="basic">Basic</option>
+              <option value="advanced">Advanced</option>
+              <option value="pro">Pro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" ngModel name="password" required #password="ngModel">
+          </div>
+          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a valid password!</span>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+        <div *ngIf="!f.valid && f.touched">
+          <hr>
+          <span class="help-block">Please check all the input and correct where needed !</span>
+        </div>
+      </form>
+
+      <div class="row" *ngIf="submitted">
+        <div class="col-xs-12">
+          <br>
+          <h3>Output form</h3>
+          <p>Mail adress: {{ input.mail }}</p>
+          <p>Subscription: {{ input.subscription }}</p>
+          <p>Password: {{ input.password }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

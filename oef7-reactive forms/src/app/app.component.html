@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1>Oefening 7: Reactive forms</h1>
+      <hr>
+      <br>
+      <form [formGroup]="inputForm" (ngSubmit)="onSubmit()">
+        <div id="user-data">
+          <div class="form-group">
+            <label for="name">Project name</label>
+            <input  type="text" id="name" class="form-control" formControlName="name">
+          </div>
+          <span class="help-block" *ngIf="!inputForm.get('name').valid && inputForm.get('name').touched">Please enter a Project name!</span>
+          <div class="form-group">
+            <label for="email">Mail adress</label>
+            <input  type="text" id="email" class="form-control" formControlName="email">
+          </div>
+          <span class="help-block" *ngIf="!inputForm.get('email').valid && inputForm.get('email').touched">Please enter a valid mail adress!</span>
+          <div class="form-group">
+            <label for="statusProject">Status Project</label>
+            <select id="statusProject" class="form-control" formControlName="statusProject">
+              <option value="stable">Stable</option>
+              <option value="critical">Critical</option>
+              <option value="finished">Finished</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!inputForm.valid">Submit</button>
+        <div *ngIf="!inputForm.valid && inputForm.touched">
+          <hr>
+          <span class="help-block">Please check all the input and correct where needed !</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
