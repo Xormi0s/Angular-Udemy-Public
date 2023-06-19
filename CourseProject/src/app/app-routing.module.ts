@@ -25,6 +25,8 @@ const appRoutes: Routes = [
     exports: [RouterModule]
 })
 
+  /* TEST */
+
 export class AppRoutingModule{
 
 }
